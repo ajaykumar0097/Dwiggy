@@ -89,3 +89,20 @@
 .body{
   background:#C1F2B0
 }
+
+
+.shimmer-card{
+  margin: 20px;
+  width: 200px;
+  height: 480px;
+  background-color: lightgrey;
+}
+.shimmer-container{
+  display: flex;
+}
+
+.login{
+  padding: 0 20px;
+  cursor: pointer;
+
+}

@@ -7,10 +7,10 @@ const ResCard = ({resData}) =>{
         <img className="res-logo" src={`${CDN_URL}${resData.info.cloudinaryImageId}`} alt="cardImg"  />
     
         <h3>{resData.info.name}</h3>
-        {/* <h5>{(resData.info.cuisines).join(",")}</h5> */}
+        <h5>{(resData.info.cuisines).join(",")}</h5>
         <h4>{resData.info.avgRating}</h4>
-        {/* <h4>{resData.info.costForTwo}</h4> */}
-        {/* <h4>{resData.info.sla.deliveryTime} minutes</h4> */}
+        <h4>{resData.info.costForTwo}</h4>
+        <h4>{resData.info.sla.deliveryTime} minutes</h4>
       </div>
     )
   }

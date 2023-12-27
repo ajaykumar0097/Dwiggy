@@ -1,6 +1,7 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { KFC_OBJ } from "../../utils/__mock__/__mock__";
 import ResCard from "./ResCard/ResCard";
+import Shimmer from "../Shimmer";
 
 // const listOfRestraurantJs =
 //     [
@@ -27,7 +28,19 @@ import ResCard from "./ResCard/ResCard";
 //     }
 //   ]
 const Body = () => {
-  const [listOfRestraurant, setListOfRestraurant]= useState(KFC_OBJ)
+  const [listOfRestraurant, setListOfRestraurant]= useState([])
+
+  useEffect(() => {
+    fetchData();
+  },[])
+
+  const fetchData = async() =>{
+    const data =await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+    const json = await data.json()
+    const restData=json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
+    // console.log(json.data.cards[1]?.card.card.gridElements.infoWithStyle.restaurants);
+    setListOfRestraurant(restData)
+  }
   
 
   const handleClick=() => {
@@ -37,7 +50,10 @@ const Body = () => {
     )
     setListOfRestraurant(listOfRestraurant1);
   }
-  return (
+
+ 
+  
+  return listOfRestraurant.length===0? (<Shimmer/>): (
     <div className="body">
       <div className="search">
         <button className="filter-btn" onClick={handleClick}>Top Rated Restaurants</button>
