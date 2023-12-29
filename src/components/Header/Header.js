@@ -1,8 +1,13 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import Logo from "../../assets/logo.jpg"
 
 export const Header = () => {
   const [loginBtn, setLoginBtn]= useState("Login")
+  console.log("header render");
+
+  useEffect(()=> {
+    console.log("useEffect called");
+  },[loginBtn])
     return (
       <div className="header">
         <div className="logo">

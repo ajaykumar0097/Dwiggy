@@ -30,7 +30,7 @@ const Body = () => {
   const [listOfRestraurant, setListOfRestraurant] = useState([])
   const [filteredRestraurant, setFilteredRestraurant] = useState([])
   const [searchText, setSearchText] = useState("")
-  console.log("body render");
+  // console.log("body render");
 
   useEffect(() => {
     fetchData();
