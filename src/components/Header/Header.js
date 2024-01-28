@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
 import Logo from "../../assets/logo.jpg"
-
+import { Link } from "react-router-dom";
 export const Header = () => {
   const [loginBtn, setLoginBtn]= useState("Login")
   console.log("header render");
@@ -16,10 +16,10 @@ export const Header = () => {
   
         <div className="nav-items">
           <ul>
-            <li>Home</li>
-            <li>About Us</li>
-            <li>Contact Us</li>
-            <li>Cart</li>
+            <li><Link to="/">Home</Link></li>
+            <li><Link to="/about">About Us</Link></li>
+            <li><Link to="/contact">Contact Us</Link></li>
+            <li><Link to="">Cart</Link></li>
             <button className="login" onClick={()=> loginBtn==="Login"? setLoginBtn("Logout"):setLoginBtn("Login")}>{loginBtn}</button>
           </ul>
         </div>

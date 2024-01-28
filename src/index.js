@@ -1,8 +1,36 @@
 import React from 'react';
 import ReactDOM from 'react-dom/client';
-import  { appRouter } from './App';
-import { RouterProvider } from 'react-router-dom';
+import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import App from './App';
+import Error from './Error';
+import AboutUs from './components/AboutUs/AboutUs';
+import ContactUs from './components/ContactUs/ContactUs';
+import Body from './components/Body/Body';
 
+
+export const appRouter = createBrowserRouter([
+  {
+    path:'/',
+    element:<App/>,
+    children:[
+      {
+        path:'/',
+        element:<Body/>
+      },
+      {
+        path:'/about',
+        element:<AboutUs/>
+      },
+      {
+        path:'/contact',
+        element:<ContactUs/>
+      },
+    ],
+    errorElement:<Error/>
+  },
+ 
+
+])
 
 const root = ReactDOM.createRoot(document.getElementById('root'));
 root.render(
@@ -10,5 +38,3 @@ root.render(
     <RouterProvider router={appRouter}/>
   </React.StrictMode>
 );
-
-

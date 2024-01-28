@@ -26,6 +26,8 @@ import Shimmer from "../Shimmer";
 //       }
 //     }
 //   ]
+
+
 const Body = () => {
   const [listOfRestraurant, setListOfRestraurant] = useState([])
   const [filteredRestraurant, setFilteredRestraurant] = useState([])
@@ -37,7 +39,7 @@ const Body = () => {
   }, [])
 
   const fetchData = async () => {
-    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.7040592&lng=77.10249019999999&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
+    const data = await fetch("https://www.swiggy.com/dapi/restaurants/list/v5?lat=28.637278&lng=77.2259488&is-seo-homepage-enabled=true&page_type=DESKTOP_WEB_LISTING")
     const json = await data.json()
     const restData = json?.data?.cards[1]?.card?.card?.gridElements?.infoWithStyle?.restaurants
     // console.log(json.data.cards[1]?.card.card.gridElements.infoWithStyle.restaurants);
