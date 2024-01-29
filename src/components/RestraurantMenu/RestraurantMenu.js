@@ -1,6 +1,9 @@
 import { useEffect, useState } from "react"
 import Shimmer from "../Shimmer"
 import { useParams } from "react-router-dom"
+import { CDN_URL } from "../../utils/constants";
+
+import './RestraurantMenu.css'
 
 const RestraurantMenu = () => {
     const [resInfo, setResInfo]= useState(null)
@@ -23,13 +26,14 @@ const RestraurantMenu = () => {
 
 // const {name} = resInfo?.cards?.[0]?.card?.card?.info
 const itemCards= resInfo?.cards?.[2]?.groupedCard?.cardGroupMap?.REGULAR?.cards?.[2]?.card?.card?.itemCards
-console.log(itemCards);
+console.log("img",resInfo?.cards?.[0]?.card?.card?.info?.cloudinaryImageId);
 
 
  
   return  resInfo===null? (<Shimmer/>):(
     <div className="menu">
-        <h1>{resInfo?.cards?.[0]?.card?.card?.info?.name}</h1>
+        <h1 className="name">{resInfo?.cards?.[0]?.card?.card?.info?.name}</h1>
+        <img className="rest__img" src={`${CDN_URL}${resInfo?.cards?.[0]?.card?.card?.info?.cloudinaryImageId}`} />
         <p>{resInfo?.cards?.[0]?.card?.card?.info?.cuisines.join(", ")}</p>
         <h5>{resInfo?.cards?.[0]?.card?.card?.info?.costForTwoMessage}</h5>
 

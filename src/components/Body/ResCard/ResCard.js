@@ -1,5 +1,6 @@
 import { CDN_URL } from "../../../utils/constants";
 
+
 const ResCard = ({resData}) =>{
   
     return(
@@ -7,7 +8,7 @@ const ResCard = ({resData}) =>{
         <img className="res-logo" src={`${CDN_URL}${resData.info.cloudinaryImageId}`} alt="cardImg"  />
     
         <h3>{resData.info.name}</h3>
-        <h5>{(resData.info.cuisines).join(",")}</h5>
+        <p>{(resData.info.cuisines).join(", ")}</p>
         <h4>{resData.info.avgRating}</h4>
         <h4>{resData.info.costForTwo}</h4>
         <h4>{resData.info.sla.deliveryTime} minutes</h4>
